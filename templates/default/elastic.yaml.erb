@@ -2,6 +2,9 @@
 
 instances:
   <% @instances.each do |i| -%>
+  <% unless i['min_collection_interval'].nil? -%>
+    min_collection_interval:  <%= i['min_collection_interval'] %>
+  <% end -%>
   - url: <%= i["url"] %>
     <% unless i["shard_level_metrics"].nil? %>
     shard_level_metrics: <%= i["shard_level_metrics"] %>
